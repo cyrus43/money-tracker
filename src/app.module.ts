@@ -1,24 +1,21 @@
+// src/app/app.module.ts
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { Wallet } from './wallet.entity';
-import { WalletService } from './wallet.service';
-import { WalletController } from './wallet.controller';
+import { MongooseModule } from '@nestjs/mongoose';
+import { WalletsController } from './controllers/wallets.controller';
+import { TransactionsController } from './controllers/transactions.controller';
+import { WalletSchema } from './models/wallet.model';
+import { TransactionSchema } from './models/transaction.model';
+import { WalletsService } from './services/wallet.service';
+import { TransactionsService } from './services/transaction.service';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'money-tracker',
-      entities: [Wallet],
-      synchronize: true,
-    }),
-    TypeOrmModule.forFeature([Wallet]),
+    MongooseModule.forFeature([
+      { name: 'Wallet', schema: WalletSchema },
+      { name: 'Transaction', schema: TransactionSchema },
+    ]),
   ],
-  providers: [WalletService],
-  controllers: [WalletController],
+  controllers: [WalletsController, TransactionsController],
+  providers: [WalletsService, TransactionsService],
 })
 export class AppModule {}
