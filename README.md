@@ -30,8 +30,8 @@ npm run start:dev
 <h2>Built With</h2>
 
 NestJS - A progressive Node.js framework for building efficient, scalable, and enterprise-grade applications
-PostgreSQL - An open-source relational database management system
-TypeORM - An Object Relational Mapper (ORM) for Node.js
+MongoDB - A document-oriented NoSQL database
+Mongoose - An Object Document Mapper (ODM) for Node.js
 
 <h2>Versioning</h2>
 We use SemVer for versioning. For the versions available, see the tags on this repository.
