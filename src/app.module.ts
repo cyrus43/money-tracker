@@ -6,9 +6,10 @@ import { TransactionSchema } from './models/transaction.model';
 import { WalletsService } from './services/wallet.service';
 import { TransactionsService } from './services/transaction.service';
 import { Module } from '@nestjs/common';
-
+import { DbModule } from './db.module';
 @Module({
   imports: [
+    DbModule,
     MongooseModule.forFeature([
       { name: 'Wallet', schema: WalletSchema },
       { name: 'Transaction', schema: TransactionSchema },
