@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-// wallet.migration.ts
 
 import * as mongoose from 'mongoose';
 
