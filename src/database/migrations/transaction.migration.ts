@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-
 import * as mongoose from 'mongoose';
 
 const transactionSchema = new mongoose.Schema({
