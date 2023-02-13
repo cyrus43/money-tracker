@@ -2,29 +2,24 @@
 import * as mongoose from 'mongoose';
 
 const transactionSchema = new mongoose.Schema({
-  walletId: {
-    type: mongoose.Types.ObjectId,
-    required: true,
-  },
-  type: {
-    type: String,
-    required: true,
-    enum: ['income', 'expense'],
-  },
   description: {
     type: String,
+    required: true,
+  },
+  date: {
+    type: Date,
     required: true,
   },
   amount: {
     type: Number,
     required: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  type: {
+    type: String,
+    required: true,
+    enum: ['debit', 'credit']
+  }
 });
-
 export const Transaction = mongoose.model('Transaction', transactionSchema);
 
 export async function up() {
